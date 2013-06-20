@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Panel de control | {{ usuario.nombre }}</title>
+	<meta charset="utf-8">
+	{% block stylesheets %}
+	<link href="{{ asset('bundles/front/css/portada.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('bundles/extranet/css/extranet.css') }}" rel="stylesheet" type="text/css" />
+	{% endblock %}
+</head>
+<body>
+	<div class="contenedor">
+		<header>
+			<a href="{{ path('extranet') }}">
+				<img src="{{ asset('bundles/front/images/alood_logo.png') }}"/>
+			</a>
+			<nav>
+				<ul>
+					<li>
+						<a href="{{ path('editarPerfil', { 'id': usuario.usuario }) }}">Editar perfil</a>
+					</li>
+					<li class="no-space">
+						<a href="{{ path('logout') }}"> <p class="button1 green">Logout</p></a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<article>
+			<section id="extranet_ppal">
+				<h2>Bienvenido al panel de control de Alood</h2>
+				
+				<div class="n_prod">
+					<a href="{{ path('producto') }}" class="button_new">
+						<em></em>
+						Nuevo producto
+					</a>
+				</div>
+				<div class="buscar">
+					<form action="{{ path('buscarProd') }}" method="post" class="button_search">
+						<p>Buscar por código de barras:</p>
+						<input type="text" name="barcode" id="search_barcode">
+					</form>
+				</div>
+				
+				<table style="empty-cells: show; width: 100%" class="table">
+					<thead>
+						<tr>
+							<th style="width:15%">Código de barras</th>
+							<th style="width:25%">Nombre</th>
+							<th style="width:15%">Última revisión</th>
+							<th style="width:10%">Calorias</th>
+							<th style="width:10%">Puntos</th>
+							<th style="width:15%">Acciones</th>
+						</tr>
+					</thead>
+				<tbody>
+					{% if entities %}
+					<tr> 
+						<td>{{ entities.barcode }}</td>
+						<td><a href="{{ path('verProducto', { 'id': entities.barcode }) }}">{{ entities.nombre }}</a></td>
+						<td>{{ entities.Revision|date('Y-m-d') }}</a></td>
+						<td>{{ entities.calorias }}</td>
+						<td>{{ entities.puntos }}</td>
+						<td><a href="{{ path('editarProducto', { 'id': entities.barcode }) }}">Modificar</a> | 
+							<a href="{{ path('eliminarProducto', { 'id': entities.barcode }) }}">Eliminar</a>
+						</td>
+					</tr>
+					{% else %}
+					<tr>
+						<td class="center" colspan="6">No tienes ningun producto en nuestro sistema</td>
+					</tr>
+					{% endif %}
+				</tbody>
+			</table>
+			<div style="clear:both"></div>
+			</section>
+		</article>
+	</div>
+</body>
+</html>

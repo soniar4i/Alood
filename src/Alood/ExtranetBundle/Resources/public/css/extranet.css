@@ -1,0 +1,260 @@
+/******************
+* Pagina principal *
+******************/
+
+#extranet_ppal{
+	margin-bottom: 30px;
+}
+
+.contenedor header nav ul li a{
+	font-size: 80%;
+	font-style:normal;
+}
+
+h2{
+	font-weight:300;
+}
+
+.n_prod{
+	margin: 20px 0;
+	float:left;
+	width:400px;
+}
+
+table{
+	border-collapse:collapse;
+	font-weight:300;
+}
+
+table tr td{
+	border:1px solid #CDCDCD;
+	padding: 5px;
+	font-size:90%;
+}
+
+table thead tr:hover{
+	background-color:transparent;
+}
+
+table tr:hover{
+	background-color:#f4f4f4;
+}
+
+table tr td a{
+	color:#A53E70;
+}
+
+table tr th{
+	border:2px solid #A53E70;
+	padding: 10px 5px;
+}
+
+.center{
+	text-align:center;
+}
+
+ul.paginador{
+	float:right;
+	margin:15px 0 10px 0;
+}
+
+ul.paginador li{
+	float:left;
+	padding:6px;
+	background-color: #f4f4f4;
+}
+
+.buscar{
+	float:right;
+}
+
+#extranet_ppal form.button_search{
+	margin: 0;
+}
+
+form.button_search p{
+	font-weight:300;
+}
+
+#search_barcode{
+	width: 200px;
+    background-image: url(../images/buscar.png);  
+	background-repeat: no-repeat;
+	padding: 6px 5px 6px 25px ;
+	background-position:1% 50%; 
+}
+
+.button_perfil{
+	margin: 2px 0 5px 0;
+}
+
+nav ul li.button_perfil a{
+	margin: 0 20px;
+}
+
+/**************************
+* Pagina agregar producto *
+**************************/
+
+.button_new{
+	color:#A53E70;
+}
+
+
+.button_new em{
+    display:inline-block;
+    width:21px;
+    height:21px;
+    background-image: url(../images/nuevo.png);  
+	background-repeat: no-repeat; 
+}
+
+#extranet_ppal h2{
+	margin: 20px 0 5px 0;
+}
+
+#extranet_ppal form{
+	margin: 50px 30px;
+}
+
+#extranet_ppal .form label{
+	width:200px;
+}
+
+#extranet_ppal .sidebyside{
+	float:left;
+	width:350px;
+	margin: 0 30px 20px 0;
+	height:70px;
+}
+
+input.file{
+	border: 1px solid #cdcdcd;
+	box-shadow:none !important;
+	padding: 5px;
+	width:200px;
+	
+}
+
+input[type=file]::-webkit-file-upload-button { 
+	color:#ffffff;
+	background-color: #A53E70;
+	padding: 4px 7px;
+	border:none;
+}
+
+input#form_calorias{
+	width: 170px;
+}
+
+input#form_fechaRevision{
+	width:120px;
+}
+
+#extranet_ppal form input[type="submit"]{
+	color:#ffffff;
+	margin: 20px 0 0 0;
+	background:#a53e70;
+	border:none;
+	padding: 5px 10px;
+	float:left;
+	display:block;
+	width: 100px;
+}
+
+ul{
+	list-style-type:none;
+}
+
+.error1, ul li{
+	font-size:85%;
+	font-weight:300;
+	text-align:left;
+	margin: 0 auto;
+	font-style:italic;
+	color:#a53e70;
+	padding:3px 0 3px 0;
+}
+
+#form_alergenos{
+	padding:25px 0 20px 0;
+}
+
+#extranet_ppal form input[type="checkbox"]{
+	width:25px;
+}
+
+.check{
+	overflow:hidden;
+}
+
+.alerg{
+	margin: 15px 20px;
+	float:left;
+}
+
+/**************************
+* Pagina ver producto *
+**************************/
+
+#ver_prod{
+	overflow:hidden;
+	width:80%;
+	margin: 0 auto;
+}
+
+.left{
+	width:50%;
+	float:left;
+	margin:25px 0;
+	text-align:center;
+}
+
+.left img{
+	width:250px;
+	height:250px;
+	margin: 0 auto;
+}
+
+.right{
+	width:50%;
+	margin:25px 0;
+	float:left;
+}
+
+.right h2{
+	padding-bottom: 10px;
+}
+
+.right p{
+	margin:7px 0;
+}
+
+.alergeno_prod h3{
+	padding: 10px 10px;
+	font-weight:300;
+	font-size:120%;
+}
+
+#prod_alerg, #prod_comen{
+	padding-left: 20px;
+	display:inline-block;
+}
+
+ul#prod_alerg li{
+	padding: 5px 35px 15px 0;
+	float:left;
+}
+
+.form_foto img{
+	width:35px;
+	height:35px;
+}
+
+.prodcheck{
+	margin-top:60px;
+	overflow:hidden;
+}
+
+
+

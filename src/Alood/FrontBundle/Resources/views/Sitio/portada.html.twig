@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Alood</title>
+	<meta charset="utf-8">
+	{% block stylesheets %}
+	<link href="{{ asset('bundles/front/css/portada.css') }}" rel="stylesheet" type="text/css" />
+	{% endblock %}
+</head>
+<body>
+	<div class="contenedor">
+		<header>
+			<a href="{{ path('portada') }}">
+				<img src="{{ asset('bundles/front/images/alood_logo.png') }}"/>
+			</a>
+			<nav>
+				<ul>
+					<li>
+						<a class="active" href="{{ path('portada') }}">Inicio</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'quienes_somos' }) }}">Sobre Alood</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'demo' }) }}">Instrucciones</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'contacto' }) }}">Contacto</a>
+					</li>
+					<li class="no-space">
+						<a href="{{ path('login') }}"> <p class="button1 green">Zona fabricantes</p></a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<article>
+			<section id="principal">
+				<img src="{{ asset('bundles/front/images/Samsung-Galaxy-S3.png') }}" alt="Pantalla Alood"/>
+			</section>
+			<section id="secundario">
+				<p>¿Alergias alimentarias?</p>
+				<p>Cuida tu salud con Alood</p>
+				<a href="#" class="button green">
+					<em></em>
+					Descarga gratis la aplicación
+				</a>
+				<p id="nota_pie">Disponible para <a href="http://www.android.com">Android</a></p>
+			</section>
+		</article>
+		<footer>
+			By <a href="http://www.absolutelyorganicthoughts.com">Absolutely Organic Girl</a>
+		</footer>
+	</div>
+</body>
+</html>

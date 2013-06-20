@@ -1,0 +1,129 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    #esi:             ~
+    translator:      { fallback: "%locale%" }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: "%kernel.debug%"
+    form:            true
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trust_proxy_headers: false # Deprecated in 2.0; will be removed in 2.3 (used trusted_proxies instead)
+    trusted_proxies: ~
+    session:         ~
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ ]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        #closure:
+        #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
+        #yui_css:
+        #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+parameters:
+    alood.directorio.imagenes: %kernel.root_dir%/../web/uploads/images/
+
+# Sonata configuration
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Application\Sonata\UserBundle\Entity\User
+sonata_block:
+      default_contexts: [cms]
+      blocks:
+          sonata.admin.block.admin_list:
+              contexts:   [admin]
+          sonata.block.service.text:   ~
+          sonata.block.service.action: ~
+          sonata.block.service.rss:    ~
+sonata_admin:
+      title:      'Alood - Panel de Administración'
+      title_logo: /bundles/backend/logotipo1.png
+      templates:
+          layout:  SonataAdminBundle::standard_layout.html.twig
+          ajax:    SonataAdminBundle::ajax_layout.html.twig
+          list:    SonataAdminBundle:CRUD:list.html.twig
+          show:    SonataAdminBundle:CRUD:show.html.twig
+          edit:    SonataAdminBundle:CRUD:edit.html.twig
+services:
+# ...
+      sonata.alood.admin.fabricante:
+          class: Alood\BackBundle\Admin\FabricanteAdmin
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: 'Backend Admin', label: Fabricantes }
+          arguments:
+              - null
+              - Alood\ExtranetBundle\Entity\Fabricante
+              - null
+      sonata.alood.admin.alergeno:
+          class: Alood\BackBundle\Admin\AlergenoAdmin
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: 'Backend Admin', label: Alergenos }
+          arguments:
+              - null
+              - Alood\BackBundle\Entity\Alergeno
+              - null
+      sonata.alood.admin.producto:
+          class: Alood\BackBundle\Admin\ProductoAdmin
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: 'Backend Admin', label: Productos }
+          arguments:
+              - null
+              - Alood\ExtranetBundle\Entity\Producto
+              - BackBundle:ProductoAdmin
+      sonata.alood.admin.comentario:
+          class: Alood\BackBundle\Admin\ComentarioAdmin
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: 'Backend Admin', label: Comentarios }
+          arguments:
+              - null
+              - Alood\BackBundle\Entity\Comentario
+              - null
+      sonata.alood.admin.usuario:
+          class: Alood\BackBundle\Admin\UsuarioAdmin
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: 'Backend Admin', label: Usuarios }
+          arguments:
+              - null
+              - Alood\BackBundle\Entity\Usuario
+              - null

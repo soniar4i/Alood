@@ -1,0 +1,393 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	width:90%;
+	max-width:1000px;
+	margin: 0 auto;
+	font-family: helvetica, arial, sans-serif;
+	color:#6e6e6e;
+	min-width:780px;
+}
+
+a{
+	color:#6e6e6e;
+	text-decoration:none;
+}
+
+a:hover{
+	color:#a53e70;
+}
+
+.contenedor{
+	width:100%;
+}
+
+header{
+	width:100%;
+	height:70px;
+	margin: 20px 0 10px 0;
+}
+
+header a img{
+	width:200px;
+	float:left;
+}
+
+nav{
+	margin:10px 0 0 0;
+	float:right;
+}
+
+nav ul{
+	list-style-type:none;
+	display:block;
+}
+
+nav ul li{
+	float:left;
+	margin: 8px;
+}
+
+nav ul li a{
+	text-transform:uppercase;
+	font-weight:200;
+	font-size:76%;
+}
+
+nav ul li a:hover{
+	-webkit-transition:color 0.5s ease-in;
+	-moz-transition:color 0.5s ease-in;  
+	-o-transition:color 0.5s ease-in;  
+	transition:color 0.5s ease-in; 
+}
+
+article{
+	clear:both;
+	overflow:hidden;
+}
+
+#principal{
+	width:65%;
+	float:left;
+	overflow:hidden;
+}
+
+#principal img{
+	width:100%;
+}
+
+#secundario{
+	margin: 12% auto 0 auto;
+}
+
+#secundario p{
+	text-transform:uppercase;
+	font-size:23px;
+	font-weight:300;
+	line-height:30px;
+	font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    margin: 15px 0 10px 0;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font: bold 12px/25px Arial, sans-serif;
+	text-shadow: 1px 1px 1px rgba(255,255,255, .10);
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	-webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+	-moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+	box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+	-webkit-transition: all 0.15s ease;
+	-moz-transition: all 0.15s ease;
+	-o-transition: all 0.15s ease;
+	-ms-transition: all 0.15s ease;
+	transition: all 0.15s ease;
+}
+
+.button1 {
+    display: inline-block;
+    position: relative;
+    margin: 2px 0 5px 0;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    font: bold 12px/25px Arial, sans-serif;
+	text-shadow: 1px 1px 1px rgba(255,255,255, .10);
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	-webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+	-moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+	box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+	-webkit-transition: all 0.15s ease;
+	-moz-transition: all 0.15s ease;
+	-o-transition: all 0.15s ease;
+	-ms-transition: all 0.15s ease;
+	transition: all 0.15s ease;
+}
+
+
+.green {
+    color: #ffffff;
+	background: #a53e70; /* Old browsers */
+	background: -moz-linear-gradient(top,  #a53e70 0%, #961252 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a53e70), color-stop(100%,#961252)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #a53e70 0%,#961252 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #a53e70 0%,#961252 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #a53e70 0%,#961252 100%); /* IE10+ */
+	background: linear-gradient(top,  #a53e70 0%,#961252 100%); /* W3C */
+}
+
+.no-space{
+	margin: 1px 8px;
+}
+
+p.button1.green{
+	color: #ffffff;
+	font-weight:200;
+	font-size:76%;
+}
+
+p.button1.green:hover, a.button:hover{
+	color:#cdcdcd;
+}
+
+em{
+    vertical-align:middle;
+    margin:-2px 2px 0 2px;
+    display:inline-block;
+    width:25px;
+    height:25px;
+    background-image: url(../images/ic_donwload.png);      
+}
+
+.active{
+	color:#a53e70;
+}
+
+
+img.down{
+	float:left;
+	margin-right:10px;
+}
+
+p#nota_pie{
+	text-transform:capitalize;
+	float:left;
+	text-indent:10px;
+	font-size:80%;
+}
+
+footer{
+	clear:both;
+	float:right;
+	font-size:80%;
+	bottom:0;
+}
+
+
+
+/******************
+* Pagina nosotros *
+******************/
+
+#about_img{
+	width:50%;
+	float:left;
+}
+
+.imagen{
+	margin: 0 auto;
+	text-align:center;
+}
+
+.imagen img{
+	width:auto;
+}
+
+#about_sec{
+	padding: 20px 10px;
+	width:48%;
+	float:left;
+}
+
+#about_sec h1{
+	font-weight:500;
+	font-size:300%;
+	color:#a53e70;
+	margin-bottom:5px;
+}
+
+#about_sec h2{
+	font-weight:300;
+	font-size:130%;
+}
+
+#about_sec p{
+	margin: 20px 0 20px 0;
+	font-size:100%;
+	text-align:justify;
+}
+
+#about_sec ul{
+	margin-left:50px;
+	list-style-type:circle;
+}
+
+
+/******************
+* Pagina contacto *
+******************/
+
+.contact h2{
+	font-weight:300;
+	font-size:130%;
+	margin: 25px 0 10px 0;
+}
+
+#contactform{
+	width:56%;
+	float:left;
+	margin-top:30px;
+}
+
+#contactform p{
+	margin: 70px 40px 0 40px;
+	font-weight:300;
+	font-size:105%;
+	text-align: center;
+	font-style: italic;
+	color: #A53E70;
+}
+
+form{
+	margin: 0 0 0 7%;
+}
+
+.form{
+	margin: 15px 0;
+}
+
+section#contactform form input[type="submit"]{
+	color:#ffffff;
+	background:#a53e70;
+	border:none;
+	padding: 5px 10px;
+	width: 120px;
+}
+
+.form label{
+	width: 80px;
+    display:block;
+	margin: 5px 0;
+}
+
+input, textarea{
+	border: 1px solid #cdcdcd;
+	box-shadow:none;
+	padding: 5px;
+	width:300px;
+}
+
+textarea {
+	width:320px;
+	height:150px;
+	margin-bottom: 10px;
+}
+
+.form_message {
+	display:block;
+}
+
+#contact_img{
+	width:40%;
+	float:left;
+}
+
+
+/**************
+* Pagina demo *
+***************/
+
+#demo_principal{
+	width:90%;
+	margin: 0 auto 20px auto;
+}
+
+.youtube-player{
+	text-align:center;
+}
+
+#demo_principal h2{
+	font-weight:300;
+	margin: 30px 0 20px 0;
+}
+
+/***************
+* Pagina login *
+****************/
+
+
+#demo_principal form{
+	width: 300px;
+	margin: 0 auto;
+}
+
+#demo_principal form label{
+	display:inline-block;
+	min-width:80px;
+	margin: 12px 0;
+}
+
+#demo_principal form input{
+	border: 1px solid #cdcdcd;
+	box-shadow:none;
+	padding: 5px;
+	width:200px;
+}
+
+#demo_principal form input[type="submit"]{
+	color:#ffffff;
+	margin: 15px 0 0 0;
+	background:#a53e70;
+	border:none;
+	padding: 5px 10px;
+	float:right;
+	display:block;
+	width: 100px;
+}
+
+#demo_principal form input[type="checkbox"]{
+	background:#a53e70;
+	border:none;
+	width: 20px;
+}
+
+#remember{
+	width:150px;
+	font-size:80%;
+	font-weight:300;
+}
+
+.error{
+	font-size:85%;
+	font-weight:300;
+	width:700px;
+	text-align:center;
+	margin: 0 auto;
+	padding-top: 30px;
+	font-style:italic;
+	color:#a53e70;
+}
+
+
+

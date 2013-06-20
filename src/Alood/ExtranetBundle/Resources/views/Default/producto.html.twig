@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Insertar producto | {{ usuario.nombre }}</title>
+	<meta charset="utf-8">
+	{% block stylesheets %}
+	<link href="{{ asset('bundles/front/css/portada.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('bundles/extranet/css/extranet.css') }}" rel="stylesheet" type="text/css" />
+	{% endblock %}
+</head>
+<body>
+	<div class="contenedor">
+		<header>
+			<a href="{{ path('extranet') }}">
+				<img src="{{ asset('bundles/front/images/alood_logo.png') }}"/>
+			</a>
+			<nav>
+				<ul>
+					<li>
+						<a href="{{ path('editarPerfil', { 'id': usuario.usuario }) }}">Editar perfil</a>
+					</li>
+					<li class="no-space">
+						<a href="{{ path('logout') }}"> <p class="button1 green">Logout</p></a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<article>
+			<section id="extranet_ppal">
+				<h2>Agregar un producto</h2>
+				
+				<form action="{{ path('producto') }}" method="post" {{ form_enctype(formulario) }}>
+					
+			        <div class="form sidebyside">
+			            {{ form_label(formulario.barcode, 'Código de barras:') }}
+			            {{ form_widget(formulario.barcode) }}
+						{% if message is defined %}<p class="error1">{{ message }}</p>{% endif %}
+						{{ form_errors(formulario.barcode) }}
+			        </div>
+					
+					
+			        <div class="form sidebyside">
+			            {{ form_label(formulario.nombre, 'Nombre del producto:') }}
+			            {{ form_widget(formulario.nombre) }}
+						{{ form_errors(formulario.nombre) }}
+			        </div>
+					
+					<div style="clear:both"></div>
+					
+			        <div class="form sidebyside">
+			            {{ form_label(formulario.foto, 'Imagen:') }}
+			            {{ form_widget(formulario.foto) }}
+						{{ form_errors(formulario.foto) }}
+						<p class="error1">Tamaño máximo: 500 KB.</p>
+			        </div>
+					
+			        <div class="form sidebyside calorias">
+			            {{ form_label(formulario.calorias, 'Calorías (número entero):') }}
+			            {{ form_widget(formulario.calorias) }}
+						{{ form_errors(formulario.calorias) }}
+			        </div>
+					
+					<div style="clear:both"></div>
+					
+					<h2>Alergenos:</h2>
+					
+					<div class="check">
+						{% for t in formulario.alergenos %}
+						<div class="alerg">{{ form_widget(t) }} {{ form_label(t) }}</div>
+						{{ form_errors(t) }}
+						
+						{% endfor %}
+					</div>
+						
+						
+					{{ form_rest(formulario) }}
+					
+				    <input type="submit" value="Guardar" />
+					
+					<div style="clear:both">
+					
+					<p class="error">{{ form_errors(formulario) }}</p>
+					
+				</form>
+				
+			</section>
+		</article>
+	</div>
+</body>
+</html>

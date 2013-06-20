@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ver producto | {{ producto.nombre }}</title>
+	<meta charset="utf-8">
+	{% block stylesheets %}
+	<link href="{{ asset('bundles/front/css/portada.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('bundles/extranet/css/extranet.css') }}" rel="stylesheet" type="text/css" />
+	{% endblock %}
+</head>
+<body>
+	<div class="contenedor">
+		<header>
+			<a href="{{ path('extranet') }}">
+				<img src="{{ asset('bundles/front/images/alood_logo.png') }}"/>
+			</a>
+			<nav>
+				<ul>
+					<li>
+						<a href="{{ path('editarPerfil', { 'id': usuario.usuario }) }}">Editar perfil</a>
+					</li>
+					<li class="no-space">
+						<a href="{{ path('logout') }}"> <p class="button1 green">Logout</p></a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<article>
+			<section id="ver_prod">
+				<h3>Ver producto</h3>
+				<div class="left">
+					{% if producto.foto %}
+						<img src="{{ asset('uploads/images/' ~ producto.foto) }}"/>
+					{% else %}
+						<img src="{{ asset('uploads/images/no_img.jpg') }}">
+					{% endif %}
+				</div>
+				<div class="right">
+					<h2>{{ producto.nombre}}</h2>
+					<p>Código de barras: {{ producto.barcode}}</p>
+					<p>Fecha de última revisión: {{ producto.revision|date('Y-m-d')}}</p>
+					<p>Calorías: {{ producto.calorias}}</p>
+					<p>Estrellas: {{ producto.puntos}}</p>
+				</div>
+				<div style="clear:both"></div>
+				<div class="alergeno_prod">
+					<h3>Alergenos</h3>
+					<ul id="prod_alerg">
+						{% if producto.alergenos is not empty %}
+							{% for alergeno in producto.alergenos %}
+								<li>{{ alergeno.nombre }}</li>
+							{% endfor %}
+						{% else %}
+							<li>Tu producto está libre de alergenos</li>
+						{% endif %}
+					</ul>
+				</div>
+				<div style="clear:both"></div>
+				<div class="alergeno_prod">
+					<h3>Comentarios</h3>
+					<ul id="prod_comen">
+						{% if producto.comentarios is not empty %}
+							{% for comentario in producto.comentarios %}
+								<li>{{ comentario.usuario }}</li>
+								<li>{{ comentario.usuario }}</li>
+								<li>{{ cometario.puntuacion }}</li>
+							{% endfor %}
+						{% else %}
+							<li>Aún no hay comentarios para tu producto</li>
+						{% endif %}
+					</ul>
+				</div>
+			</section>
+		</article>
+	</div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+request_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: RequestBundle:Default:index }

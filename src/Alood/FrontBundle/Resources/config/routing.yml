@@ -1,0 +1,5 @@
+front_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: FrontBundle:Default:index }
+
+

@@ -1,0 +1,47 @@
+# app/config/security.yml
+security:
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_SONATA_ADMIN, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+    firewalls:
+        admin:
+            pattern: ^/admin(.*)
+            form_login:
+                provider:       fos_userbundle
+                login_path:     /admin/login/
+                use_forward:    false
+                check_path:     /admin/login_check/
+                default_target_path: /admin/
+            logout:
+                path: /admin/logout/
+                target: portada
+            anonymous: true
+        frontend:
+            pattern:     ^/*
+            provider: usuario
+            anonymous:   ~
+            form_login:
+                check_path: /extranet/login_check/
+                default_target_path: /extranet/
+                always_use_default_target_path: true
+            remember_me:
+                key: cupon1234
+                lifetime: 3600
+            logout:
+                path:   /logout/
+    access_control:
+        - { path: ^/nosotros/login/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/extranet/*, roles: ROLE_USER }
+
+        - { path: ^/admin/login/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY } 
+        - { path: ^/admin/login_check$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/*, roles: ROLE_SUPER_ADMIN }
+    providers:
+        usuario:
+            entity: { class: Alood\ExtranetBundle\Entity\Fabricante, property: usuario }
+        fos_userbundle:
+            id: fos_user.user_manager
+    encoders:
+        Alood\ExtranetBundle\Entity\Fabricante: plaintext
+        FOS\UserBundle\Model\UserInterface: plaintext

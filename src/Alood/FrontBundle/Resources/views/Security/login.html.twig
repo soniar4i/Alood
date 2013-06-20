@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Acceder | Alood</title>
+	<meta charset="utf-8">
+	{% block stylesheets %}
+	<link href="{{ asset('bundles/front/css/portada.css') }}" rel="stylesheet" type="text/css" />
+	{% endblock %}
+</head>
+<body>
+	<div class="contenedor">
+		<header>
+			<a href="{{ path('portada') }}">
+				<img src="{{ asset('bundles/front/images/alood_logo.png') }}"/>
+			</a>
+			<nav>
+				<ul>
+					<li>
+						<a href="{{ path('portada') }}">Inicio</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'quienes_somos' }) }}">Sobre Alood</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'demo' }) }}">Instrucciones</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'contacto' }) }}">Contacto</a>
+					</li>
+					<li class="no-space">
+						<a href="{{ path('login') }}"> <p class="button1 green">Zona fabricantes</p></a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<article>
+			<section id="demo_principal">
+				<h2>Zona Fabricantes</h2>
+				
+				<form action="{{ path('login_check') }}" method="post">
+				    <label for="username">User:</label>
+				    <input id="username" type="text" name="_username" /><br/>
+				    <label for="password">Password:</label>
+				    <input id="password" type="password" name="_password" />
+					
+					<div style="clear:both"></div>
+					
+					<input type="checkbox" id="remember_me" name="_remember_me" checked />
+					<label id="remember" for="remember_me">No cerrar sesión</label>
+					
+					<div style="clear:both"></div>
+
+					<input type="submit" name="login" value="Iniciar Sesión"/>
+						  
+				</form>
+				
+				<div style="clear:both">
+				
+				{% if error %}
+				<div class="error"><p>Has ingresado una mala combinación de usuario y contraseña, por favor, prueba de nuevo con otra combinación</p></div>
+				{% endif %}
+				
+			</section>
+		</article>
+	</div>
+</body>
+</html>

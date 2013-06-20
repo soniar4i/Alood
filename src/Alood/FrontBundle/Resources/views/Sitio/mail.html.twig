@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Contacto | Alood</title>
+	<meta charset="utf-8">
+	{% block stylesheets %}
+	<link href="{{ asset('bundles/front/css/portada.css') }}" rel="stylesheet" type="text/css" />
+	{% endblock %}
+</head>
+<body>
+	<div class="contenedor">
+		<header>
+			<a href="{{ path('portada') }}">
+				<img src="{{ asset('bundles/front/images/alood_logo.png') }}"/>
+			</a>
+			<nav>
+				<ul>
+					<li>
+						<a href="{{ path('portada') }}">Inicio</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'quienes_somos' }) }}">Sobre Alood</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'demo' }) }}">Instrucciones</a>
+					</li>
+					<li>
+						<a class="active" href="{{ path('estatica', { 'pagina': 'contacto' }) }}">Contacto</a>
+					</li>
+					<li class="no-space">
+						<a href="{{ path('login') }}"> <p class="button1 green">Zona fabricantes</p></a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<article class="contact">
+			<h2>Contacta con nosotros</h2>
+			<section id="contactform">
+					
+				<p>Tu mensaje ha sido enviado correctamente, en breve nos podremos en contacto contigo</p>
+					
+			</section>
+			<section id="contact_img">
+				<div class=imagen>
+					<img src="{{ asset('bundles/front/images/Samsung-entero.png') }}" alt="Pantalla Alood"/>
+				</div>
+			</section>
+		</article>
+		<footer>
+			By <a href="http://www.absolutelyorganicthoughts.com">Absolutely Organic Girl</a>
+		</footer>
+	</div>
+</body>
+</html>

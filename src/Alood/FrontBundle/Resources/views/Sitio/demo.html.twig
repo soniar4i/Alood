@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Instrucciones | Alood</title>
+	<meta charset="utf-8">
+	{% block stylesheets %}
+	<link href="{{ asset('bundles/front/css/portada.css') }}" rel="stylesheet" type="text/css" />
+	{% endblock %}
+</head>
+<body>
+	<div class="contenedor">
+		<header>
+			<a href="{{ path('portada') }}">
+				<img src="{{ asset('bundles/front/images/alood_logo.png') }}"/>
+			</a>
+			<nav>
+				<ul>
+					<li>
+						<a href="{{ path('portada') }}">Inicio</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'quienes_somos' }) }}">Sobre Alood</a>
+					</li>
+					<li>
+						<a class="active" href="{{ path('estatica', { 'pagina': 'demo' }) }}">Instrucciones</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'contacto' }) }}">Contacto</a>
+					</li>
+					<li class="no-space">
+						<a href="{{ path('login') }}"> <p class="button1 green">Zona fabricantes</p></a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<article>
+			<section id="demo_principal">
+				<h2>Aprende a utilizar Alood de la manera más sencilla</h2>
+				<p class="youtube-player"><iframe width="853" height="480" src="http://www.youtube.com/embed/ZnfXL1N0Lr4?rel=0" frameborder="0" allowfullscreen></iframe></p>
+			</section>
+		</article>
+		<footer>
+			By <a href="http://www.absolutelyorganicthoughts.com">Absolutely Organic Girl</a>
+		</footer>
+	</div>
+</body>
+</html>

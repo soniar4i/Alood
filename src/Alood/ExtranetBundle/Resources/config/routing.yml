@@ -1,0 +1,21 @@
+extranet:
+    pattern:  /extranet/
+    defaults: { _controller: ExtranetBundle:Default:home}
+producto:
+    pattern: /extranet/producto/nuevo/
+    defaults: { _controller: ExtranetBundle:Default:producto }
+editarProducto:
+    pattern: /extranet/producto/editar/{id}
+    defaults: { _controller: ExtranetBundle:Default:editarprod }
+verProducto:
+    pattern: /extranet/producto/ver/{id}
+    defaults: { _controller: ExtranetBundle:Default:verprod }
+eliminarProducto:
+    pattern: /extranet/producto/eliminar/{id}
+    defaults: { _controller: ExtranetBundle:Default:eliminarProd }
+buscarProd:
+    pattern: /extranet/producto/buscar
+    defaults: { _controller: ExtranetBundle:Default:buscar }
+editarPerfil:
+    pattern: /extranet/producto/editar/perfil/{id}
+    defaults: { _controller: ExtranetBundle:Default:editarPerfil }

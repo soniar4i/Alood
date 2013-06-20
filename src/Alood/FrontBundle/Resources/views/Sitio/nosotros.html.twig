@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre Alood | Alood</title>
+	<meta charset="utf-8">
+	{% block stylesheets %}
+	<link href="{{ asset('bundles/front/css/portada.css') }}" rel="stylesheet" type="text/css" />
+	{% endblock %}
+</head>
+<body>
+	<div class="contenedor">
+		<header>
+			<a href="{{ path('portada') }}">
+				<img src="{{ asset('bundles/front/images/alood_logo.png') }}"/>
+			</a>
+			<nav>
+				<ul>
+					<li>
+						<a href="{{ path('portada') }}">Inicio</a>
+					</li>
+					<li>
+						<a class="active" href="{{ path('estatica', { 'pagina': 'quienes_somos' }) }}">Sobre Alood</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'demo' }) }}">Instrucciones</a>
+					</li>
+					<li>
+						<a href="{{ path('estatica', { 'pagina': 'contacto' }) }}">Contacto</a>
+					</li>
+					<li class="no-space">
+						<a href="{{ path('login') }}"> <p class="button1 green">Zona fabricantes</p></a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<article>
+			<section id="about_img">
+				<div class=imagen>
+					<img src="{{ asset('bundles/front/images/Samsung-entero.png') }}" alt="Pantalla Alood"/>
+				</div>
+			</section>
+			<section id="about_sec">
+				<h1>Alood App</h1>
+				<h2>Una forma simple y sencilla para comprar y comer con seguridad</h2>
+				<p>Alood permite realizar búsquedas rápidas a través del escaneo del código de barras de los productos, para determinar si este contiene elementos que producen alergias alimentarias y así ayudar a todos los alergicos a productos como:</p>
+				<ul>
+					<li>Apio</li>
+					<li>Cacahuetes</li>
+					<li>Frutos secos</li>
+					<li>Huevos</li>
+					<li>Leche</li>
+					<li>Marisco</li>
+					<li>Mostaza</li>
+					<li>Pescado</li>
+					<li>Sésamo</li>
+					<li>Soja</li>
+				</ul>
+			</section>
+		</article>
+		<footer>
+			By <a href="http://www.absolutelyorganicthoughts.com">Absolutely Organic Girl</a>
+		</footer>
+	</div>
+</body>
+</html>
