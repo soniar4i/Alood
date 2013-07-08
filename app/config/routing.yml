@@ -25,6 +25,12 @@ front:
 
 
 # app/config/routing.yml
+registroUsuario:
+    pattern:  /api-registro/
+    defaults: { _controller: RequestBundle:Api:registroUser }
+api_login:  
+   pattern: /api/login/
+   defaults: { _controller: RequestBundle:Api:apiLogin } 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
     prefix: /profile

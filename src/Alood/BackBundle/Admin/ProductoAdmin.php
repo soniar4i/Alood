@@ -26,7 +26,8 @@ class ProductoAdmin extends Admin {
 		->add('fabricante');
 	}
 	protected function configureFormFields(FormMapper $mapper){
-		$mapper
+	    if ($this->getSubject()->getBarcode() > 0) {
+			$mapper
 			->add('barcode', 'text', array('disabled' => true))
 			->add('nombre', 'text')
 			->add('foto', 'file', array('required' => false,'data_class' => null))
@@ -36,6 +37,18 @@ class ProductoAdmin extends Admin {
 			//->add('comentarios', 'sonata_type_collection', array(), array(
              //   'edit' => 'inline',
                // 'inline' => 'table'));
+	       }else{
+			$mapper
+   			->add('barcode', 'text')
+   			->add('nombre', 'text')
+   			->add('foto', 'file', array('required' => false,'data_class' => null))
+   			->add('calorias')
+   			->add('puntos', 'integer', array('disabled' => true))
+   			->add('alergenos','entity', array('class' => 'BackBundle:Alergeno','expanded' => true, 'compound' => true, 'multiple' => true,'by_reference' => false));
+   			//->add('comentarios', 'sonata_type_collection', array(), array(
+                //   'edit' => 'inline',
+                  // 'inline' => 'table'));
+	       }
 	}
 	
 	

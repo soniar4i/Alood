@@ -22,7 +22,7 @@ class UsuarioAdmin extends Admin {
 	}
 	protected function configureFormFields(FormMapper $mapper){
 	$mapper
-		->add('user', null, array('disabled' => true))
+		->add('user', 'text')
 	    ->add('email')
 	    ->add('password', 'repeated',   array('type' => 'password', 'invalid_message' => 'Las dos contraseñas deben coincidir',
 			'options' => array('label' => 'Contraseña')))

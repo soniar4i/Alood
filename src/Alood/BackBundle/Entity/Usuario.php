@@ -3,13 +3,13 @@ namespace Alood\BackBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
 * @ORM\Entity
 **/
 
-class Usuario{
+class Usuario implements UserInterface {
 	
 	/**
 	* @ORM\Id
@@ -65,6 +65,22 @@ class Usuario{
 	public function setComentarios($item) { $this->comentarios = $item; }
 	
 	public function __toString(){
+		return $this->user."";
+	}
+	
+	function eraseCredentials(){}
+		
+	function getRoles()
+	{
+		return array('ROLE_API');
+	}
+	public function getSalt()
+	{
+		return ''; 
+	}
+	
+	function getUsername()
+	{
 		return $this->getUser();
 	}
 }

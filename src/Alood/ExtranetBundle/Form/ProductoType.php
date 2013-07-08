@@ -19,7 +19,7 @@ class ProductoType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 		 $builder
- 			->add('barcode', 'text', array('disabled' => true))
+ 			->add('barcode', 'text')
 			
  	        ->add('nombre', 'text', 
  		array('constraints' => array(new Assert\NotBlank( array('message' => 'indica un nombre para el producto.')))))

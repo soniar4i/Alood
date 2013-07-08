@@ -3,14 +3,14 @@ parameters:
     database_host: 127.0.0.1
     database_port: null
     database_name: alood
-    database_user: root
-    database_password: root
-    mailer_transport: gmail
+    database_user: ****
+    database_password: ***
+    mailer_transport: ****
     mailer_encryption: ssl
     mailer_auth_mode: login
     mailer_host: smtp.gmail.com
-    mailer_user: non.less.organic
-    mailer_password: bluebe898
+    mailer_user: ****
+    mailer_password: ****
     locale: es
     secret: 5ad10bcc669669fb2311080d27103fb97ac
     database_path: null

@@ -1,9 +1,15 @@
 # app/config/security.yml
 security:
     role_hierarchy:
+        ROLE_API: ROLE_API
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_SONATA_ADMIN, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
-    firewalls:
+    firewalls: 
+        api:  
+            pattern: ^/api/.*  
+            provider: app_user
+            http_basic:  
+                realm: "API"
         admin:
             pattern: ^/admin(.*)
             form_login:
@@ -30,18 +36,25 @@ security:
             logout:
                 path:   /logout/
     access_control:
+
         - { path: ^/nosotros/login/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/extranet/*, roles: ROLE_USER }
-
         - { path: ^/admin/login/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY } 
         - { path: ^/admin/login_check$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/*, roles: ROLE_SUPER_ADMIN }
+
+        - { path: ^/api-registro/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/.*, role: ROLE_API }
+
     providers:
         usuario:
             entity: { class: Alood\ExtranetBundle\Entity\Fabricante, property: usuario }
+        app_user:
+            entity: { class: Alood\BackBundle\Entity\Usuario, property: user }
         fos_userbundle:
             id: fos_user.user_manager
     encoders:
         Alood\ExtranetBundle\Entity\Fabricante: plaintext
         FOS\UserBundle\Model\UserInterface: plaintext
+        Alood\BackBundle\Entity\Usuario: plaintext

@@ -22,7 +22,7 @@ class FabricanteAdmin extends Admin {
 	}
 	protected function configureFormFields(FormMapper $mapper){
 	$mapper
-		->add('usuario', 'text', array('disabled' => true))
+		->add('usuario', 'text')
 		->add('nombre', 'text')
     	->add('password', 'repeated',   array('type' => 'password', 'invalid_message' => 'Las dos contraseñas deben coincidir',
               'options' => array('label' => 'Contraseña')))

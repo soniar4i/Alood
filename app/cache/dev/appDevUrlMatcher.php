@@ -105,9 +105,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/')) {
-            // request_homepage
-            if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]+)$#s', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Alood\\RequestBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'request_homepage'));
+            // requestAlergenos
+            if (0 === strpos($pathinfo, '/api/usuario') && preg_match('#^/api/usuario/(?P<id>[^/]+)$#s', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Alood\\RequestBundle\\Controller\\ApiController::alergenosUserAction',)), array('_route' => 'requestAlergenos'));
             }
 
             // extranet
@@ -161,6 +161,24 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // front_homepage
             if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]+)$#s', $pathinfo, $matches)) {
                 return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Alood\\FrontBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'front_homepage'));
+            }
+
+            // registroUsuario
+            if (rtrim($pathinfo, '/') === '/api-registro') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'registroUsuario');
+                }
+
+                return array (  '_controller' => 'Alood\\RequestBundle\\Controller\\ApiController::registroUserAction',  '_route' => 'registroUsuario',);
+            }
+
+            // api_login
+            if (rtrim($pathinfo, '/') === '/api/login') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'api_login');
+                }
+
+                return array (  '_controller' => 'Alood\\RequestBundle\\Controller\\ApiController::apiLoginAction',  '_route' => 'api_login',);
             }
 
             if (0 === strpos($pathinfo, '/profile')) {
